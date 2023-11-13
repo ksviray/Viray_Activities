@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    position: sticky;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    border: 10rem;
+    display: block;
+    color: brown;
+    background-color: bisque;
+}
+
+h1 {
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+h2 {
+    color: brown;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 1rem;
+}
+
+/*menu button won't move to the side return to lesson on creating burger menu*/
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.menu-icon, .menu-icon:before, .menu-icon:after {
+    background-color: rgba(245, 245, 245, 0.904);
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    transition: all;
+    transition-duration: 0.3s;
+}
+
+.menu-icon:before, .menu-icon:after {
+    content: "";
+}
+
+.menu-icon:before {
+    transform: translate(-20px, -12px);
+}
+
+.menu-icon:after {
+    transform: translate(-20px, 12px);
+}
+
+:is(header:hover, header:focus-within) .menu-icon {
+    background-color: transparent;
+}
+
+:is(header:hover, header:focus-within) .menu-icon::before {
+    transform: translateX(-20px);
+}
+
+:is(header:hover, header:focus-within) .menu-icon::after {
+    transform: translateX(-20px);
+}
+
+:is(header:hover, header:focus-within) nav {
+    display: block;
+}
+
+nav {
+    display: none;
+    transform-origin: top center;
+    animation: showMenu 0.5s ease-in-out forwards;
+}
+
+@keyframes showMenu {
+    0% {
+        transform: scaleY(0);
+    }
+
+    80% {
+        transform: scaleY(1.2)
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+nav li {
+    padding: 0.5rem;
+    border-top: 1px solid white;
+}
+
+nav a {
+    display: block;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+nav a:any-link {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav a:hover, nav a:focus {
+    transform: scale(120%);
+    color: grey;
+    transition: all 0.3s;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    text-align: center;
+    background-color: hsl(60, 79%, 94%);
+}
+
+body figure {
+    border: 1px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: center;
+}
+
+figure img {
+    display: flex;
+    padding: 0.25rem;
+    justify-content: space-evenly;
+    border: 2px dashed brown;
+    height: 200px;
+    width: 200px;
+    position: static;
+    border-radius: 25px;
+    
+    /*images won't align the way I want, return to lesson in usage of align*/
+    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-flow: row;
+}
+
+figure img:hover {
+    transform: scale(110%);
+}
+
+figcaption {
+    color: brown;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+address {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: bisque;
+    color: brown;
+    display: block;
+    padding: 5px;
+    border: 10rem;
+}
